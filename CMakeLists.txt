@@ -281,3 +281,17 @@ foreach(file ${diff_tests_cruxbc_big})
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/bin
   )
 endforeach()
+
+# type inference tests  (ctest -R type_infer -VV)
+set(cmd "wpa -ander -stat=false")
+file(GLOB type_infer_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "${CMAKE_CURRENT_SOURCE_DIR}/test_cases_bc/type_infer_tests/*.bc*")
+string(REPLACE " " ";" commandtemp ${cmd})
+set(command ${commandtemp})
+# loops over each file creating a test
+foreach(filename ${type_infer_files})
+  add_test(
+          NAME type_infer_tests/${filename}
+          COMMAND ${command} ${CMAKE_CURRENT_SOURCE_DIR}/${filename}
+          WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+  )
+endforeach()
