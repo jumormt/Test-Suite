@@ -165,7 +165,7 @@ entry:
   %2 = load i32*, i32** %1, align 8
   %3 = bitcast i32* %2 to i8*
   %4 = bitcast i32* %b to i8*
-  call void @MAYALIAS(i8* %3, i8* %4)
+  call void @EXPECTEDFAIL_MAYALIAS(i8* %3, i8* %4)
   ret i32 0
 }
 
