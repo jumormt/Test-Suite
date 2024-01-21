@@ -99,6 +99,10 @@ def comparer_filesystem(stats1: Stats, stats2: Stats):
             # Timing statistics are not deterministic
             continue
 
+        if key.startswith('MemoryUsage'):
+            # Memory statistics are not deterministic
+            continue
+
         d1 = stats1[section][key]
         d2 = stats2[section][key]
 
@@ -146,7 +150,7 @@ def try_get_keynum_pair(line: str) -> Optional[Tuple[str, Number]]:
     - 'AvgTopLvlPtsSize 123' into a tuple ('AvgTopLvlPtsSize', 123)
     - 'AvgTopLvlPtsSize 123.456' into a tuple ('AvgTopLvlPtsSize', 123.456).
     '''
-    pattern = r'^([A-Za-z0-9]+)\s+([-+]?\d*\.?\d+)\s*$'
+    pattern = r'^([A-Za-z0-9]+)\s+([-+]?\d*\.?\d+([eE][-+]?\d+)?)\s*$'
     match = re.match(pattern, line)
     if match:
         return match.group(1), str_to_number(match.group(2))
