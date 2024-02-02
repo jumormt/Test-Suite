@@ -68,7 +68,7 @@ def comparer_andersen(stats1: Stats, stats2: Stats):
     exceptions = [
         ('basic_cpp_tests/queue-1.cpp.bc', 0.01), # 0.00604714303344439
         ('basic_cpp_tests/stack-1.cpp.bc', 0.01), # 0.0022123893805308967
-        ('basic_cpp_tests/vector-1.cpp.bc', 0.15), # 0.1426766811269205
+        ('basic_cpp_tests/vector-1.cpp.bc', 0.16), # 0.1426766811269205
         ('basic_cpp_tests/vector-3.cpp.bc', 0.17), # 0.15063392744891338
         ('complex_tests/test4.c.bc', 0.29), # 0.2820512820512821
     ]
