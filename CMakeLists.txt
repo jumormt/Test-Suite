@@ -282,7 +282,7 @@ endforeach()
 
 # Crux bc Big: Filesystem & Performance regression testing
 # Run with (ctest -R diff-perf-cruxbc-big -VV)
-set(diff_tests_cruxbc_big libcurl.so)
+set(diff_tests_cruxbc_big libcurl.so bash)
 foreach(file ${diff_tests_cruxbc_big})
   file(GLOB filename RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "${CMAKE_CURRENT_SOURCE_DIR}/test_cases_bc/crux-bc/${file}.bc")
   add_test(
